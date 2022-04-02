@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-4.2.xsd ">
+
+    <!--配置实体对象-->
+    <bean id="userServiceDao" class="com.fc.service.impl.UserServiceDaoImpl"/>
+    <!--配置通知对象-->
+    <bean id="advice" class="com.fc.advice.AnnotationAdvice"/>
+    <!--AOP相关设置-->
+    <!--ture为CHGLIB代理,默认为JDK代理-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+
+</beans>

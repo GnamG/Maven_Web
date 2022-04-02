@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件，namespace命名空间：对应一个完全的全限定名，必须和对应的接口的路径相匹配-->
+<!-- 旧版
+  <mapper namespace="StudentMapper">
+
+    <select id="select" resultType="com.fc.entity.Student">
+        select * from student where id = 10;
+    </select>
+    <insert id="add">
+        insert into student(name, age, gender, info) VALUES ('真是渣渣',21,'男','好好学好好敲');
+    </insert>
+</mapper>-->
+<!--新版-->
+<mapper namespace="com.fc.dao.StudentDao">
+<select id="findLessThanAge" resultType="com.fc.entity.Student" parameterType="Integer">
+    select * from  student where age &lt; #{age}
+</select>
+    <select id="findGreaterThanAge" resultType="com.fc.entity.Student" parameterType="Integer">
+        select * from student where age &gt; #{age}
+    </select>
+</mapper>
