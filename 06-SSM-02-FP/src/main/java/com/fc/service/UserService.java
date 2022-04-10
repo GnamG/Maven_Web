@@ -1,16 +1,18 @@
 package com.fc.service;
 
 import com.fc.entity.User;
+import com.fc.vo.ResultVo;
 
 import java.util.List;
 
 public interface UserService {
-    int add(User user);
+    ResultVo add(User user);
 
-    int del(String id);
+    ResultVo del(Long id);
 
-    int up(User user);
-    List<User> list(Integer id);
+    ResultVo up(User user);
+
+    ResultVo list(Long id, Integer pageNum , Integer pageSize);
 
     long count();
 }
