@@ -2,14 +2,13 @@ package com.fc.controller;
 
 import com.fc.entity.User;
 import com.fc.service.UserService;
+import com.fc.util.JwtUtil;
 import com.fc.vo.ResultVo;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,25 +19,29 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("add")
+    @PostMapping("add")
     public ResultVo add(@RequestBody User user){
         return userService.add(user);
     }
-    @RequestMapping("del")
+    @GetMapping("delete")
     public ResultVo del(Long id){
 
         return userService.del(id);
     }
-    @RequestMapping("update")
+    @PostMapping("update")
     public ResultVo up(@RequestBody User user){
 
         return userService.up(user);
     }
-    @RequestMapping("getlist")
+    @GetMapping("getlist")
     public ResultVo list(Long id, @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
                          @RequestParam(value = "pageSize",defaultValue = "3") Integer pageSize){
-
+        System.out.println("输出id"+id);
         return userService.list(id,pageNum,pageSize);
     }
+    @RequestMapping("login")
+    public ResultVo login(String username, String password) {
 
+        return userService.login(username,password);
+    }
 }

@@ -15,4 +15,6 @@ public interface UserService {
     ResultVo list(Long id, Integer pageNum , Integer pageSize);
 
     long count();
+
+    ResultVo login(String username, String password);
 }

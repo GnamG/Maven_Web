@@ -18,7 +18,7 @@ public class CollectionController {
     public ResultVo getList(Long id, @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum, @RequestParam(value = "pageSize",defaultValue = "3") Integer pageSize){
         return collectionService.getList(id,pageNum,pageSize);
     }
-    @PostMapping("add")
+    @PostMapping("delete")
     public ResultVo add(@RequestBody Collection collection){
         return collectionService.add(collection);
     }

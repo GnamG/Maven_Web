@@ -17,21 +17,21 @@ import java.util.*;
 public class AlleviationController {
     @Autowired
     private AlleviationService alleviationService;
-    @RequestMapping("getlist")
+    @GetMapping("getlist")
     public ResultVo getList(Long id, @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,@RequestParam(value = "pageSize",defaultValue = "3") Integer pageSize){
         return alleviationService.getList(id,pageNum,pageSize);
     }
 
-    @RequestMapping("add")
+    @PostMapping("add")
     public ResultVo add(@RequestBody Alleviation alleviation){
         return alleviationService.add(alleviation);
     }
-    @RequestMapping("update")
+    @PostMapping("update")
     public ResultVo update(@RequestBody Alleviation alleviation) {
         return alleviationService.update(alleviation);
     }
 
-    @RequestMapping("del")
+    @GetMapping("delete")
     public ResultVo delete(Long id) {
         return alleviationService.delete(id);
     }

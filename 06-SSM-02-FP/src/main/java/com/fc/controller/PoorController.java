@@ -21,7 +21,7 @@ public class PoorController {
     public ResultVo add(@RequestBody PoorWithBLOBs poor){
         return poorService.add(poor);
     }
-    @GetMapping("del")
+    @GetMapping("delete")
     public ResultVo del(Long id){
 
         return poorService.delete(id);

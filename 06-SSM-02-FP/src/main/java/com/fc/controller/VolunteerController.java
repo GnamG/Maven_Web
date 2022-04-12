@@ -27,7 +27,7 @@ public class VolunteerController {
         return volunteerService.update(volunteerRecruitment);
     }
 
-    @GetMapping("del")
+    @GetMapping("delete")
     public ResultVo delete(Long id) {
         return volunteerService.delete(id);
     }
