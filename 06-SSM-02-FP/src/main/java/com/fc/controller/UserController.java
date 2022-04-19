@@ -34,12 +34,12 @@ public class UserController {
         return userService.up(user);
     }
     @GetMapping("getlist")
-    public ResultVo list(Long id, @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+    public ResultVo list(User user, @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
                          @RequestParam(value = "pageSize",defaultValue = "3") Integer pageSize){
-        System.out.println("输出id"+id);
-        return userService.list(id,pageNum,pageSize);
+
+        return userService.list(user,pageNum,pageSize);
     }
-    @RequestMapping("login")
+    @PostMapping("login")
     public ResultVo login(String username, String password) {
 
         return userService.login(username,password);

@@ -29,7 +29,7 @@
         <!--4kb缓存-->
         <property name="maxInMemorySize" value="4096"/>
         <!--单个文件的最大size-->
-        <property name="maxUploadSizePerFile" value="20000000000"/>
+        <property name="maxUploadSizePerFile" value="200000000"/>
         <property name="defaultEncoding" value="defaultEncoding"/>
     </bean>
 </beans>

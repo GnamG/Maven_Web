@@ -1,10 +1,12 @@
 package com.fc.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Collection {
     private Long id;
-
+    @JsonFormat(pattern = "yyyy年MM月dd天HH时mm分ss秒")
     private Date createTime;
 
     private Long userId;

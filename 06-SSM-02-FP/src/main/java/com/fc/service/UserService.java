@@ -12,7 +12,7 @@ public interface UserService {
 
     ResultVo up(User user);
 
-    ResultVo list(Long id, Integer pageNum , Integer pageSize);
+    ResultVo list(User user, Integer pageNum , Integer pageSize);
 
     long count();
 
