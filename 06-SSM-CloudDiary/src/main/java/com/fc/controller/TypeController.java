@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("type")
@@ -22,8 +23,8 @@ public class TypeController {
         return typeService.list(mv,req);
     }
     @PostMapping("addOrUpdate")
-    public ResultInfo addOrUpdate(TbNoteType type){
-        return typeService.addOrUpdate(type);
+    public ResultInfo addOrUpdate(HttpSession session, TbNoteType type){
+        return typeService.addOrUpdate(session,type);
     }
     @GetMapping("delete")
     public ResultInfo delete(Integer id){

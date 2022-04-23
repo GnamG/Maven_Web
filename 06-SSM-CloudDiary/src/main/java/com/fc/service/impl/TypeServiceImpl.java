@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
@@ -32,16 +33,18 @@ public class TypeServiceImpl implements TypeService {
     }
 
     @Override
-    public ResultInfo addOrUpdate(TbNoteType type) {
+    public ResultInfo addOrUpdate(HttpSession session, TbNoteType type) {
         ResultInfo resultInfo ;
         int rows;
         if (type.getId()==null){
+            TbUser user = (TbUser) session.getAttribute("user");
+            type.setUserId(user.getId());
             rows = tbNoteTypeMapper.insertSelective(type);
         }else {
             rows = tbNoteTypeMapper.updateByPrimaryKeySelective(type);
         }
         if (rows>0){
-            resultInfo = new ResultInfo(1,"添加或修改成功",null);
+            resultInfo = new ResultInfo(1,"添加或修改成功",type.getId());
         }else {
             resultInfo = new ResultInfo(0,"添加或修改失败",null);
         }

@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
         HttpSession session = req.getSession();
         Cookie cookie = new Cookie("JSESSIONID","");
         if (req.getParameter("remember")==null){
-            cookie.setMaxAge(0);
+            cookie.setMaxAge(-1);
         }else {
             map.put("username",req.getParameter("username"));
             map.put("password",req.getParameter("password"));
@@ -53,7 +53,6 @@ public class UserServiceImpl implements UserService {
         if(!tbUsers.isEmpty()){
 
             session.setAttribute("user",tbUsers.get(0));
-            //  mv.addObject("user",tbUsers.get(0));
 
             resultInfo = new ResultInfo(200,"登录成功",map);
             mv.addObject("resultInfo",resultInfo);
@@ -71,6 +70,8 @@ public class UserServiceImpl implements UserService {
         ModelAndView mv = new ModelAndView("redirect:/login.jsp");
         HttpSession session = req.getSession(false);
         session.removeAttribute("user");
+        session.removeAttribute("dataInfo");
+        session.removeAttribute("typeInfo");
         Cookie cookie = new Cookie("JSESSIONID", "");
         cookie.setMaxAge(0);
         resp.addCookie(cookie);
