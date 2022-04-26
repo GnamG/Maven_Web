@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("cross")
-@CrossOrigin(originPatterns = "*",allowCredentials = "true",
+@CrossOrigin(allowedHeaders = {"token"},originPatterns = "*",allowCredentials = "true",
             maxAge = 3600,methods = {
             RequestMethod.POST,
             RequestMethod.GET,
