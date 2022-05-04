@@ -22,30 +22,32 @@ public class TestingAStackDemo {
         @BeforeEach
         void createNewStack(){
             stack = new Stack<>();
+            System.out.println("初始化栈，不为null");
         }
 
+        @Test
+        @DisplayName("is empty")
+        void isEmpty(){
+            Assertions.assertTrue(stack.isEmpty());
+        }
+
+        @Test
+        @DisplayName("throws EmptyStackException when popped")
+        void throwsExceptionWhenPopped(){
+            Assertions.assertThrows(EmptyStackException.class,()->{
+                stack.pop();
+            });
+        }
+        @Test
+        @DisplayName("throws EmptyStackException when peeked")
+        void throwsExceptionWhenPeeked() {
+            Assertions.assertThrows(EmptyStackException.class, () -> {
+                stack.peek();
+            });
+        }
     }
 
-    @Test
-    @DisplayName("is empty")
-    void isEmpty(){
-        Assertions.assertTrue(stack.isEmpty());
-    }
 
-    @Test
-    @DisplayName("throws EmptyStackException when popped")
-    void throwsExceptionWhenPopped(){
-        Assertions.assertThrows(EmptyStackException.class,()->{
-            stack.pop();
-        });
-    }
-    @Test
-    @DisplayName("throws EmptyStackException when peeked")
-    void throwsExceptionWhenPeeked() {
-        Assertions.assertThrows(EmptyStackException.class, () -> {
-            stack.peek();
-        });
-    }
 
     @Nested
     @DisplayName("after pushing an element")
