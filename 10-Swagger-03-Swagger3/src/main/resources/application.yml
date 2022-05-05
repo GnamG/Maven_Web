@@ -1,0 +1,15 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+      base-url: ""
+
+    auto-startup: true
+    enabled: true
+    # 3.0使用的协议名字就改成openapi
+    open-api:
+      enabled: true
