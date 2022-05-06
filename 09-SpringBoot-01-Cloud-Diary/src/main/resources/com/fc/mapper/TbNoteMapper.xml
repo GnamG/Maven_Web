@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fc.dao.TbNoteMapper">
-
+  <select id="findByPageAndUserId" resultType="com.fc.vo.NoteVO">
+    select tn.*, tnt.type_name as typeName
+    from tb_note tn
+           inner join tb_note_type tnt
+           on tn.type_id = tnt.id
+    where tn.id = #{id}
+  </select>
   <resultMap id="BaseResultMap" type="com.fc.entity.TbNote">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />

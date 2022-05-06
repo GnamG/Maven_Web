@@ -4,9 +4,10 @@ import com.fc.entity.TbNote;
 import com.fc.entity.TbNoteExample;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbNoteMapper {
     long countByExample(TbNoteExample example);
 
@@ -36,4 +37,5 @@ public interface TbNoteMapper {
 
     int updateByPrimaryKey(TbNote record);
 
+    List<TbNote> findByPageAndUserId(Integer userId, Integer id, String title, String date);
 }
