@@ -77,6 +77,22 @@
                             </a>
                         </li>
                     </c:if>
+
+                        <%-- 尾页 --%>
+                    <c:if test="${page.pageNum < page.pages}">
+                        <li>
+                            <a href="/index/page?&pageNum=${page.pages}&title=${title}&date=${date}&typeId=${typeId}">
+                                <span>尾页</span>
+                            </a>
+                        </li>
+                    </c:if>
+                    <c:if test="${page.pageNum == page.pages}">
+                        <li>
+                            <a href="#">
+                                <span>尾页</span>
+                            </a>
+                        </li>
+                    </c:if>
                 </ul>
             </nav>
         </c:if>
