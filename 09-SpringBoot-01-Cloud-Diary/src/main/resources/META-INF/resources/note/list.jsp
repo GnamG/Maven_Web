@@ -28,23 +28,52 @@
             <%-- 设置分页导航 --%>
             <nav style="text-align: center">
                 <ul class="pagination  center">
-                    <%-- 如果当前不是第一页，则显示上一页的按钮 --%>
+                        <%--首页--%>
                     <c:if test="${page.pageNum > 1}">
                         <li>
-                            <a href="/index/page?pageNum=${page.prePage}&title=${title}&date=${date}&typeId=${typeId}"><span>«</span> </a>
+                            <a href="/index/page?pageNum=1&title=${title}&date=${date}&id=${typeId}"><span>首页</span> </a>
                         </li>
                     </c:if>
-                    <%-- 导航页数 --%>
+
+                    <c:if test="${page.pageNum == 1}">
+                        <li>
+                            <a href="#"><span>首页</span> </a>
+                        </li>
+                    </c:if>
+
+                        <%-- 如果当前不是第一页，则显示上一页的按钮 --%>
+                    <c:if test="${page.pageNum > 1}">
+                        <li>
+                            <a href="/index/page?pageNum=${page.prePage}&title=${title}&date=${date}&id=${typeId}"><span>«</span> </a>
+                        </li>
+                    </c:if>
+                        <%-- 导航页数 --%>
                     <c:forEach begin="${page.navigateFirstPage}" end="${page.navigateLastPage}" var="p">
                         <li <c:if test="${page.pageNum == p}">class="active"</c:if> >
-                            <a href="/index/page?pageNum=${p}&title=${title}&date=${date}&typeId=${typeId}">${p}</a>
+                            <a href="/index/page?pageNum=${p}&title=${title}&date=${date}&id=${typeId}">${p}</a>
                         </li>
                     </c:forEach>
-                    <%-- 如果当前不是最后一页，则显示下一页的按钮 --%>
+                        <%-- 如果当前不是最后一页，则显示下一页的按钮 --%>
                     <c:if test="${page.pageNum < page.pages}">
                         <li>
                             <a href="/index/page?&pageNum=${page.nextPage}&title=${title}&date=${date}&typeId=${typeId}">
                                 <span>»</span>
+                            </a>
+                        </li>
+                    </c:if>
+
+                        <%-- 尾页 --%>
+                    <c:if test="${page.pageNum < page.pages}">
+                        <li>
+                            <a href="/index/page?&pageNum=${page.pages}&title=${title}&date=${date}&typeId=${typeId}">
+                                <span>尾页</span>
+                            </a>
+                        </li>
+                    </c:if>
+                    <c:if test="${page.pageNum == page.pages}">
+                        <li>
+                            <a href="#">
+                                <span>尾页</span>
                             </a>
                         </li>
                     </c:if>

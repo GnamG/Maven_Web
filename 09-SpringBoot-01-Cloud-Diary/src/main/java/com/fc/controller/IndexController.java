@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,4 +67,30 @@ public class IndexController {
         return mv;
     }
 
+    @GetMapping("searchType")
+    public ModelAndView searchType(Integer id, ModelAndView mv) {
+        mv.addObject("id", id);
+
+        mv.setViewName("forward:/index/page");
+
+        return mv;
+    }
+
+    @GetMapping("searchTitle")
+    public ModelAndView searchTitle(String title, ModelAndView mv) {
+        mv.addObject("title", title);
+
+        mv.setViewName("forward:/index/page");
+
+        return mv;
+    }
+
+    @GetMapping("searchDate")
+    public ModelAndView searchDate(String date, ModelAndView mv) {
+        mv.addObject("date", date);
+
+        mv.setViewName("forward:/index/page");
+
+        return mv;
+    }
 }

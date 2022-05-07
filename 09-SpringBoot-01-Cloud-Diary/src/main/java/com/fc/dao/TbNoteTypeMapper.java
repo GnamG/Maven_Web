@@ -3,9 +3,10 @@ package com.fc.dao;
 import com.fc.entity.TbNoteType;
 import com.fc.entity.TbNoteTypeExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbNoteTypeMapper {
     int IsCount(@Param("id") Integer id);
     long countByExample(TbNoteTypeExample example);
