@@ -24,7 +24,7 @@
         body {
             padding-top: 60px;
             padding-bottom: 40px;
-            background: url(/statics/images/bg.gif) repeat;
+            background: url(/META-INF/resources/statics/images/bg.gif) repeat;
         }
     </style>
 </head>
@@ -129,7 +129,7 @@
     <%-- 通过后台设置动态显示的页面，通过包含加载进来 --%>
     <%-- 如果获取到后台设置的值，则显示；如果为获取到，则设置默认 --%>
     <c:if test="${empty changePage}">
-        <jsp:include page="/note/list.jsp"/>
+        <jsp:include page="/META-INF/resources/note/list.jsp"/>
     </c:if>
     <c:if test="${!empty changePage}">
         <jsp:include page="${changePage}"/>
