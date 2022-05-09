@@ -3,6 +3,7 @@ package com.fc.service.impl;
 import com.fc.dao.TbNoteMapper;
 import com.fc.entity.TbNote;
 import com.fc.service.IndexService;
+import com.fc.vo.NoteVO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,17 @@ public class IndexServiceImpl implements IndexService {
         List<TbNote> notes = noteDao.findByPageAndUserId(userId, id, title, date);
 
         return new PageInfo<>(notes);
+    }
+
+    // 获取日期分类列表
+    @Override
+    public List<NoteVO> findDateInfo(Integer userId) {
+        return noteDao.findDateInfo(userId);
+    }
+
+    // 获取日记类型分类列表
+    @Override
+    public List<NoteVO> findTypeInfo(Integer userId) {
+        return noteDao.findTypeInfo(userId);
     }
 }

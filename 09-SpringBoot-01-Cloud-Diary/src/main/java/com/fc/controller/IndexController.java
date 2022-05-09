@@ -38,14 +38,14 @@ public class IndexController {
         PageInfo<TbNote> pageInfo = indexService.page(userId,id,title,date,pageNum,pageSize);
         mv.addObject("page", pageInfo);
 
-//        // 获取所有日记的日期分类
-//        List<NoteVO> dateInfo = indexService.findDateInfo(userId);
-//
-//        session.setAttribute("dateInfo", dateInfo);
-//
-//        // 获取所有日记的类别
-//        List<NoteVO> typeInfo = indexService.findTypeInfo(userId);
-//        session.setAttribute("typeInfo", typeInfo);
+        // 获取所有日记的日期分类
+        List<NoteVO> dateInfo = indexService.findDateInfo(userId);
+
+        session.setAttribute("dateInfo", dateInfo);
+
+        // 获取所有日记的类别
+        List<NoteVO> typeInfo = indexService.findTypeInfo(userId);
+        session.setAttribute("typeInfo", typeInfo);
 
         if (id != null) {
             mv.addObject("typeId", id);
@@ -62,7 +62,7 @@ public class IndexController {
         mv.addObject("changePage", "/note/list.jsp");
         mv.addObject("menu_page", "index");
 
-        mv.setViewName("forward:/index.jsp");
+        mv.setViewName("forward:/home.jsp");
 
         return mv;
     }

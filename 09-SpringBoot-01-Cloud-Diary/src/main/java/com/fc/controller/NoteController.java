@@ -60,7 +60,7 @@ public class NoteController {
         mv.addObject("changePage", "/note/view.jsp");
         mv.addObject("menu_page", "note");
 
-        mv.setViewName("forward:/index.jsp");
+        mv.setViewName("forward:/home.jsp");
         return mv;
     }
     @GetMapping("detail")
@@ -69,7 +69,7 @@ public class NoteController {
         mv.addObject("note",note);
         mv.addObject("changePage","/note/detail.jsp");
         mv.addObject("menu_page","note");
-        mv.setViewName("forward:/index.jsp");
+        mv.setViewName("forward:/home.jsp");
         return mv;
     }
     @GetMapping("delete")

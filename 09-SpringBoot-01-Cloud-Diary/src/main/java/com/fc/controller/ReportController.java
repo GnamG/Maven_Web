@@ -25,7 +25,7 @@ public class ReportController {
     public ModelAndView toInfo(ModelAndView mv) {
         mv.addObject("menu_page","report");
         mv.addObject("changePage","/report/info.jsp");
-        mv.setViewName("forward:/index.jsp");
+        mv.setViewName("forward:/home.jsp");
         return mv;
     }
 

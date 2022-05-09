@@ -79,7 +79,7 @@ public class UserController {
         mv.addObject("menu_page","user");
         mv.addObject("changePage","/user/info.jsp");
 
-        mv.setViewName("forward:/index.jsp");
+        mv.setViewName("forward:/home.jsp");
         return mv;
         }
     @GetMapping("checkNick")

@@ -26,7 +26,7 @@ public class NoteTypeController {
         mv.addObject("list",types);
         mv.addObject("menu_page","type");
         mv.addObject("changePage","/type/list.jsp");
-        mv.setViewName("forward:/index.jsp");
+        mv.setViewName("forward:/home.jsp");
         return mv;
     }
     @PostMapping("addOrUpdate")

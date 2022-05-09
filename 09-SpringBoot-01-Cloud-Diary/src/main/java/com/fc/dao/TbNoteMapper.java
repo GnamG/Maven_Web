@@ -40,5 +40,9 @@ public interface TbNoteMapper {
 
     List<TbNote> findByPageAndUserId(@Param("userId") Integer userId, Integer id, String title, String date);
 
+    List<NoteVO> findDateInfo(@Param("userId") Integer userId);
+
+    List<NoteVO> findTypeInfo(@Param("userId") Integer userId);
+
     NoteVO getNoteById(Integer id);
 }
