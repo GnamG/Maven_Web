@@ -1,4 +1,4 @@
-package com.controller;
+package com.fc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ public class ThymeleafController {
     @RequestMapping("test")
     public String test(Model model) {
         // 设置model
-        model.addAttribute("data","Hello Thymeleaf");
+        model.addAttribute("data", "Hello Thymeleaf");
 
         // 直接会跳转到templates下的index.html中
         // 注意，只需要写文件名即可，能够自动识别
@@ -24,8 +24,10 @@ public class ThymeleafController {
     @RequestMapping("test1")
     public ModelAndView test1(ModelAndView mv) {
         // 设置model
-        mv.addObject("data","ModelAndView Thymeleaf");
+        mv.addObject("data", "ModelAndView Thymeleaf");
+
         mv.setViewName("index");
+
         return mv;
     }
 
