@@ -16,6 +16,10 @@ public class InterceptorConfig implements WebMvcConfigurer {
                         "/**/*.js",
                         "/**/*.css",
                         "/**/*.jpg",
-                        "/**/*.png");
+                        "/**/*.png",
+                        "/**/404.html",
+                        "/**/500.html",
+                        "/exception/system",
+                        "/exception/custom");
     }
 }
